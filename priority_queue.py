@@ -9,15 +9,15 @@ class PriorityQueue:
 
   def pop(self):
     if len(self.heap) > 1:
-      self._swap(0, len(self.heap) - 1)
-      priority,item = self.heap.pop()
-      self._sift_down(0)
-      return item
+        self._swap(0, len(self.heap) - 1)
+        item = self.heap.pop()[1]  # 우선순위가 아닌 아이템을 반환
+        self._sift_down(0)
+        return item
     elif len(self.heap) == 1:
-      priority,item = self.heap.pop()
-      return item
+        item = self.heap.pop()[1]  # 우선순위가 아닌 아이템을 반환
+        return item
     else:
-      return None
+        return None
 
   def _sift_up(self, index):
     while index > 0:
