@@ -4,11 +4,11 @@ class PriorityQueue:
 
     def push(self, item, priority):
         self.queue.append((priority, item))
-        self.queue.sort(reverse=True)  # 우선순위가 높은 순서로 정렬
+        self.queue.sort(reverse=True) 
 
     def pop(self):
         if self.queue:
-            return self.queue.pop(0)[1]  # 가장 우선순위가 높은 요소 반환
+            return self.queue.pop(0)[1]  
         else:
             return None  # 큐가 비어있을 경우 None 반환
 
