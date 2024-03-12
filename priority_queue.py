@@ -8,7 +8,7 @@ class PriorityQueue:
 
   def pop(self):
     if self.queue:
-      return self.queue.pop(0)[1]  # 가장 우선순위가 높은 요소 반환
+      return self.queue.pop()[1]  # 가장 우선순위가 높은 요소 반환
     else:
       return None  # 큐가 비어있을 경우 None 반환
 
