@@ -1,23 +1,16 @@
 class PriorityQueue:
   def __init__(self):
-    self.heap = []
+      self.queue = []
 
   def push(self, item, priority):
-    entry = (priority, item)
-    self.heap.append(entry)
-    self._sift_up(len(self.heap) - 1)
+      self.queue.append((priority, item))
+      self.queue.sort(reverse=True)  # 우선순위가 높은 순서로 정렬
 
   def pop(self):
-    if len(self.heap) > 1:
-      self._swap(0, len(self.heap) - 1)
-      item = self.heap.pop()[1]  # 우선순위가 아닌 아이템을 반환
-      self._sift_down(0)
-      return item
-    elif len(self.heap) == 1:
-      item = self.heap.pop()[1]  # 우선순위가 아닌 아이템을 반환
-      return item
-    else:
-      return None
+      if self.queue:
+          return self.queue.pop(0)[1]  # 가장 우선순위가 높은 요소 반환
+      else:
+          return None  # 큐가 비어있을 경우 None 반환
 
   def _sift_up(self, index):
     while index > 0:
